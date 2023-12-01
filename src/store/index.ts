@@ -18,6 +18,8 @@ class Word {
 class WordsStore {
   words: Word[] = [];
   currentIndex: number = 0;
+  isAddWordModalOpen: boolean = false;
+  tmpWord: string = '';
 
   constructor() {
     makeAutoObservable(this);

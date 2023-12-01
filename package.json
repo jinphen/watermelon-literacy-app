@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "antd-mobile": "^5.33.0",
     "mobx": "^6.12.0",
     "mobx-react-lite": "^4.0.5",
     "next": "14.0.3",
