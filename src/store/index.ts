@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx"
-import { KnowStatus } from "../types";
+import { KnowStatus, IWord } from "../types";
 
-class Word {
+export class Word implements IWord{
   word: string = '';
   createTime: number = 0;
   deleteTime: number = 0;
@@ -12,10 +12,22 @@ class Word {
   constructor(word: string) {
     makeAutoObservable(this);
     this.word = word;
+    this.createTime = Date.now();
+  }
+
+  toJSON() {
+    return {
+      word: this.word,
+      createTime: this.createTime,
+      deleteTime: this.deleteTime,
+      isDelete: this.isDelete,
+      order: this.order,
+      knowStatus: this.knowStatus,
+    }
   }
 }
 
-class WordsStore {
+export class WordsStore {
   words: Word[] = [];
   currentIndex: number = 0;
   isAddWordModalOpen: boolean = false;
